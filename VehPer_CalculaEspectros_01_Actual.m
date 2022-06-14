@@ -20,13 +20,12 @@ TiempoVideo = TiempoVideo - TiempoVideo(1);
 T = length(Tiempo_FieldFox);
 Df=3e3/1001;
 f = -1.5e3 + (0:1000)*Df;
-v = VideoWriter('Espectros.mp4');
+v = VideoWriter('/home/rdll/Documentos/vrnoci2022/videos/Muestras_Nuevo.avi');
 v.FrameRate = 8;
 open(v);
 for n = 1:T
     SS = data(n,:);
     fbias = f(  SS == max(SS)  );
-    figure(1)
     plot(f -fbias, SS);
     xlabel( ['Tiempo en video: min.seg = ' num2str( floor(TiempoVideo(n)/60) ) ...
             ':' num2str( TiempoVideo(n) - 60*floor(TiempoVideo(n)/60) ) ',N =' num2str(n) ] )
